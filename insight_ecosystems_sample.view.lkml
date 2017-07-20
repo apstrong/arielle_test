@@ -37,6 +37,7 @@ view: insight_ecosystems_sample {
       date,
       week,
       month,
+      month_name,
       quarter,
       year
     ]
@@ -128,6 +129,7 @@ view: insight_ecosystems_sample {
 # if the user selects date, then use the end of day measure. if the user selects month, then use the end of month measure, etc.
 ##############################################################################################################################
   measure: balance {
+    label: "Ending Balance"
     type: number
     sql: CASE
           WHEN {{ date_date._in_query }} THEN ${end_of_day_balance}
@@ -139,6 +141,33 @@ view: insight_ecosystems_sample {
         END;;
     value_format_name: usd
   }
+
+  measure: number_of_accounts {
+    type: number
+#     sql: round(rand() * 100000) ;;
+    sql: ${balance} / 1000 * 1.003;;
+    value_format_name: decimal_0
+  }
+
+  measure: opened_accounts {
+    type: number
+#     sql: round(rand() * 1000) ;;
+    sql: ${balance} / 1000000 * 1.23  + (rand() * 10) ;;
+    value_format_name: decimal_0
+  }
+
+  measure: closed_accounts {
+    type: number
+    sql: ${balance} / 10000000 * 1.47 + rand() ;;
+    value_format_name: decimal_0
+  }
+
+  measure: reactivated_accounts {
+    type: number
+    sql: ${balance} / 10000000 * 1.273 + (rand() * 10);;
+    value_format_name: decimal_0
+  }
+
 
 
 }
