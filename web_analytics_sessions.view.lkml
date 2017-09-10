@@ -5,6 +5,7 @@ view: sessions {
     sql_trigger_value: select max(created_at) from events ;;
     sql: SELECT
         session_id
+        , user_id
         , MIN(created_at) AS session_start
         , MAX(created_at) AS session_end
         , COUNT(*) AS number_of_events_in_session
@@ -16,7 +17,7 @@ view: sessions {
         , MIN(id) AS landing_event_id
         , MAX(id) AS bounce_event_id
       FROM events
-      GROUP BY session_id
+      GROUP BY session_id, user_id
        ;;
  }
 
@@ -31,6 +32,12 @@ view: sessions {
     type: string
     primary_key: yes
     sql: ${TABLE}.session_id ;;
+  }
+
+  dimension: user_id {
+    type: string
+#     hidden: yes
+    sql: ${TABLE}.user_id ;;
   }
 
   dimension: session_user_id {

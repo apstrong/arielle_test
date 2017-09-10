@@ -1,5 +1,5 @@
 view: products {
-  sql_table_name: demo_db.products ;;
+  sql_table_name: products ;;
 
   dimension: id {
     primary_key: yes
@@ -37,7 +37,7 @@ view: products {
 
   dimension: item_name {
     type: string
-    sql: ${TABLE}.item_name ;;
+    sql: ${TABLE}.name ;;
   }
 
   dimension: rank {

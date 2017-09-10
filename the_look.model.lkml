@@ -46,6 +46,7 @@ explore: order_items {
 
 explore: events {
   label: "Web Analytics"
+  persist_for: "200 hours"
   always_filter: {
     filters: {
       field: event_date
@@ -56,6 +57,13 @@ explore: events {
   join: sessions {
     sql_on: ${events.session_id} =  ${sessions.session_id} ;;
     relationship: many_to_one
+  }
+
+  join: user_session_facts {
+    view_label: "Users"
+    type: left_outer
+    relationship: one_to_one
+    sql_on: ${users.id} = ${user_session_facts.user_id} ;;
   }
 
   join: session_landing_page {
