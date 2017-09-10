@@ -1,4 +1,5 @@
 explore: dmt_sample {
+  hidden: yes
   view_label: "Leads"
 }
 

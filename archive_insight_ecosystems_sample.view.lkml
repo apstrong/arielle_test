@@ -1,4 +1,6 @@
-explore: insight_ecosystems_sample {}
+explore: insight_ecosystems_sample {
+  hidden: yes
+}
 
 view: insight_ecosystems_sample {
   sql_table_name: arielle.insight_sample_data ;;
