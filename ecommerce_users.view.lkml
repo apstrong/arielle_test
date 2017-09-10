@@ -73,7 +73,7 @@ view: users {
       form_param: {
         name: "Subject"
         required: yes
-        default: "Thank you {{ users.name._value }}"
+        default: "Thank you {{ users.first_name._value }}"
       }
       form_param: {
         name: "Body"
@@ -88,7 +88,7 @@ view: users {
         Your friends at the Look"
       }
     }
-    required_fields: [name, first_name]
+    required_fields: [first_name]
   }
 
   dimension: first_name {
@@ -108,11 +108,6 @@ view: users {
   dimension: last_name {
     type: string
     sql: ${TABLE}.last_name ;;
-  }
-
-  dimension: name {
-    type: string
-    sql: concat(${first_name},' ',${last_name}) ;;
   }
 
   dimension: state {
