@@ -369,7 +369,7 @@ view: order_items {
     \"#635189\"
   ],
   \"series_colors\"         : {},
-  \"x_axis_label\"          : \"Month Number\",
+  \"x_axis_label\"          : \"Month Name\",
   \"swap_axes\"             : false
 }' %}
         {{ link }}&vis_config={{ vis_config | encode_uri }}&sorts=order_items.created_year+asc,order_items.created_month_name+asc&pivots=order_items.created_year&toggle=dat,pik,vis&limit=500&column_limit=15"
