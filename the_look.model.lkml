@@ -15,7 +15,6 @@ explore: order_items {
   join: inventory_items {
     type: left_outer
     relationship: one_to_many
-    relationship: one_to_many
     sql_on: ${inventory_items.id} = ${order_items.inventory_item_id} ;;
   }
 
