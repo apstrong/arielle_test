@@ -33,50 +33,35 @@ view: order_items {
       label: "Show as scatter plot"
       url: "
       {% assign vis_config = '{
-  \"stacking\"                  : \"\",
-  \"show_value_labels\"         : false,
-  \"label_density\"             : 25,
-  \"legend_position\"           : \"center\",
-  \"x_axis_gridlines\"          : true,
-  \"y_axis_gridlines\"          : true,
-  \"show_view_names\"           : false,
-  \"limit_displayed_rows\"      : false,
-  \"y_axis_combined\"           : true,
-  \"show_y_axis_labels\"        : true,
-  \"show_y_axis_ticks\"         : true,
-  \"y_axis_tick_density\"       : \"default\",
-  \"y_axis_tick_density_custom\": 5,
-  \"show_x_axis_label\"         : false,
-  \"show_x_axis_ticks\"         : true,
-  \"x_axis_scale\"              : \"auto\",
-  \"y_axis_scale_mode\"         : \"linear\",
-  \"show_null_points\"          : true,
-  \"point_style\"               : \"circle\",
-  \"ordering\"                  : \"none\",
-  \"show_null_labels\"          : false,
-  \"show_totals_labels\"        : false,
-  \"show_silhouette\"           : false,
-  \"totals_color\"              : \"#808080\",
-  \"type\"                      : \"looker_scatter\",
-  \"interpolation\"             : \"linear\",
-  \"series_types\"              : {},
+  \"stacking\"              : \"normal\",
+  \"legend_position\"       : \"right\",
+  \"x_axis_gridlines\"      : false,
+  \"y_axis_gridlines\"      : true,
+  \"show_view_names\"       : false,
+  \"y_axis_combined\"       : true,
+  \"show_y_axis_labels\"    : true,
+  \"show_y_axis_ticks\"     : true,
+  \"y_axis_tick_density\"   : \"default\",
+  \"show_x_axis_label\"     : true,
+  \"show_x_axis_ticks\"     : true,
+  \"show_null_points\"      : false,
+  \"interpolation\"         : \"monotone\",
+  \"type\"                  : \"looker_line\",
   \"colors\": [
-    \"palette: Santa Cruz\"
+    \"#5245ed\",
+    \"#ff8f95\",
+    \"#1ea8df\",
+    \"#353b49\",
+    \"#49cec1\",
+    \"#b3a0dd\",
+    \"#db7f2a\",
+    \"#706080\",
+    \"#a2dcf3\",
+    \"#776fdf\",
+    \"#e9b404\",
+    \"#635189\"
   ],
-  \"series_colors\"             : {},
-  \"x_axis_datetime_tick_count\": null,
-  \"trend_lines\": [
-    {
-      \"color\"             : \"#000000\",
-      \"label_position\"    : \"left\",
-      \"period\"            : 30,
-      \"regression_type\"   : \"average\",
-      \"series_index\"      : 1,
-      \"show_label\"        : true,
-      \"label_type\"        : \"string\",
-      \"label\"             : \"30 day moving average\"
-    }
-  ]
+  \"x_axis_label\"          : \"Month Number\",
 }' %}
         {{ link }}&vis_config={{ vis_config | encode_uri }}&toggle=dat,pik,vis&limit=5000"
     }
