@@ -315,7 +315,7 @@ view: order_items {
     type: sum
     value_format_name: usd
     sql: ${sale_price} ;;
-    drill_fields: [total_sale_price, created_month_num, created_year]
+    drill_fields: [total_sale_price, created_month_name, created_year]
     link: {
       label: "Show as stacked line"
       url: "
@@ -372,7 +372,7 @@ view: order_items {
   \"x_axis_label\"          : \"Month Number\",
   \"swap_axes\"             : false
 }' %}
-        {{ link }}&vis_config={{ vis_config | encode_uri }}&pivots=order_items.created_year&toggle=dat,pik,vis&limit=5000"
+        {{ link }}&vis_config={{ vis_config | encode_uri }}&sorts=order_items.created_year+asc,order_items.created_month_name+asc&pivots=order_items.created_year&toggle=dat,pik,vis&limit=500&column_limit=15"
     } # NOTE the &pivots=
   }
 
