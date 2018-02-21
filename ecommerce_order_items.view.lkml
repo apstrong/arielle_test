@@ -84,7 +84,8 @@ view: order_items {
 
   measure: order_count {
     type: count_distinct
-    drill_fields: [detail*]
+    drill_fields: [created_year, item_gross_margin_percentage_tier, users.age_tier, total_sale_price]
+    link: {label: "Total Sale Price by Month for each Age Tier" url: "{{link}}&pivots=users.age_tier"}
     sql: ${order_id} ;;
   }
 
@@ -481,6 +482,7 @@ view: order_items {
     }
     drill_fields: [detail*]
     link: {label: "Explore Top 20 Results" url: "{{ returned_count._link}}&sorts=order_items.sale_price+desc&limit=20" }
+    link: {label: "Explore Top 20 Results by Sale Price" url: "{{ returned_count._link}}&sorts=order_items.sale_price+desc&limit=20" }
   }
 
   measure: returned_total_sale_price {
